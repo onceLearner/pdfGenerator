@@ -1,65 +1,50 @@
 import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import React, { useState } from "react"
+import styled from "@emotion/styled";
+import tw from "twin.macro";
+import jsPDf from "jspdf";
+
+const Button = styled.button`
+${tw` focus:outline-none w-32 p-3 bg-white text-purple-600 border border-purple-700 hover:bg-purple-600 hover:text-white 
+ transition duration-200 ease-in 
+`}
+`
+
+
+
+const handeFile = (file) => {
+  let doc = new jsPDf("p", "in", [6, 9]);
+
+
+  for (let i = 1; i < 120; i++) {
+    doc.addPage("p", "in", [6, 9]);
+    doc.setLineWidth(0.01);
+    let iteration = 17;
+    while (iteration) {
+
+      doc.line(0.4, iteration / 2, 5.6, iteration / 2);
+      iteration--;
+    }
+
+  }
+  window.open(doc.output("bloburl"))
+
+
+}
+
 
 export default function Home() {
+  const [file, setFile] = useState("noFile");
+
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+    <div css={tw` flex items-center justify-center `} >
+      <div css={tw` flex  items-center justify-between  p-10     `} >
+        <input type="file" accept=".pdf" css={tw` `} onChange={e => setFile(e.target.files[0].name)} />
 
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
+        <Button onClick={() => handeFile(file)} > generate pdf  </Button>
+      </div>
 
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
 
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
     </div>
   )
 }
