@@ -40,7 +40,7 @@ const ReachMe = () => {
 
                     </div>
                     <Button>Send
-                        <DataUsageIcon css={tw` ${isSpin}`} />
+                        <DataUsageIcon css={tw` animate-spin`} />
                     </Button>
 
                 </div>

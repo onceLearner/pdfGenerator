@@ -1,7 +1,7 @@
 import React from 'react'
 import tw from 'twin.macro'
 import TwitterIcon from '@material-ui/icons/Twitter';
-import GithubIcon from "@material-ui/icons/Github"
+import GitHubIcon from '@material-ui/icons/GitHub'
 import FavoriteIcon from '@material-ui/icons/Favorite'
 
 const handleClick = (url) => {
