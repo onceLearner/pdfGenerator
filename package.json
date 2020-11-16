@@ -7,9 +7,6 @@
     "build": "next build",
     "start": "next start"
   },
-  "engines": {
-    "node": "14.x"
-  },
   "dependencies": {
     "@emotion/babel-preset-css-prop": "^10.0.27",
     "@emotion/core": "^10.0.35",
