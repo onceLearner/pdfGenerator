@@ -17,7 +17,7 @@ const Footer = () => {
             <div css={tw` flex justify-evenly gap-5`} >
                 <p css={tw` text-gray-200 `}> Med Issati ©2020 </p>
                 <TwitterIcon css={tw` text-gray-300 hover:text-gray-800 hover:cursor-pointer `} onClick={() => handleClick(urlTwitter)} />
-                <GithubIcon css={tw` text-gray-300 hover:text-gray-900 hover:cursor-pointer `} onClick={() => handleClick(urlGithub)} />
+                <GitHubIcon css={tw` text-gray-300 hover:text-gray-900 hover:cursor-pointer `} onClick={() => handleClick(urlGithub)} />
                 <span css={tw` text-gray-500 font-thin`}> made with <FavoriteIcon css={tw` text-red-700 text-base`} />  Next.js</span>
             </div>
 
