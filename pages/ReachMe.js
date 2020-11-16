@@ -22,7 +22,7 @@ ${tw` focus:outline-none w-32 p-3 bg-white text-purple-600 border border-purple-
 
 
 const ReachMe = () => {
-    const [isSpin, setIsSpin] = useState("animation-spin")
+    const [isSpin, setIsSpin] = useState(false)
 
     return (
         <>
@@ -39,8 +39,9 @@ const ReachMe = () => {
 
 
                     </div>
-                    <Button>Send
-                        <DataUsageIcon css={tw` animate-spin`} />
+                    <Button onClick={() => { setIsSpin(true); setTimeout(() => setIsSpin(false), 2000) }} >{isSpin ? "Send" : "Sent! Thanks"}
+                        {isSpin && <DataUsageIcon css={[isSpin && tw` animate-spin`]} />}
+
                     </Button>
 
                 </div>
