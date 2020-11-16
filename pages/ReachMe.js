@@ -1,8 +1,9 @@
 import styled from '@emotion/styled'
-import React from 'react'
+import React, { useState } from 'react'
 import tw from 'twin.macro'
 import Footer from './components/Footer'
 import Header from './components/Header'
+import DataUsageIcon from '@material-ui/icons/DataUsage';
 
 const InputName = styled.input`
 ${tw` focus:outline-none border   p-3 m-4  w-full focus:border-indigo-400  `}
@@ -21,6 +22,8 @@ ${tw` focus:outline-none w-32 p-3 bg-white text-purple-600 border border-purple-
 
 
 const ReachMe = () => {
+    const [isSpin, setIsSpin] = useState("animation-spin")
+
     return (
         <>
             <Header />
@@ -37,6 +40,7 @@ const ReachMe = () => {
 
                     </div>
                     <Button>Send
+                        <DataUsageIcon css={tw` ${isSpin}`} />
                     </Button>
 
                 </div>
