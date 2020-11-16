@@ -18,9 +18,9 @@ const Home = () => {
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
 
       </Head>
-      <body>
+      <body css={tw` h-full`}>
         <Header />
-        <div css={tw` p-12 m-12 flex flex-wrap justify-evenly items-center gap-8`} >
+        <div css={tw` p-12 md:m-12   flex flex-wrap justify-evenly items-center gap-8`} >
           <TemplateOption />
           <PdfLibOption />
 

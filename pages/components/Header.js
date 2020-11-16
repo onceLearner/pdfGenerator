@@ -11,9 +11,9 @@ const Header = () => {
             <Image src="/logo.png" height="80vh" width="90vw" />
             <ul css={tw` flex  justify-evenly gap-5`} >
                 {tabs.map(tab => (
-                    <li key={tab.id}>
+                    <li key={tab.id} >
                         <Link href={tab.href}>
-                            <a>{tab.name}</a>
+                            <a css={tw` hover:border-b-4  hover:border-indigo-400 hover:text-indigo-500 hover:cursor-pointer p-2`}>{tab.name}</a>
                         </Link>
                     </li>
                 ))}

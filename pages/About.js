@@ -6,7 +6,7 @@ import Header from './components/Header'
 
 const About = () => {
     return (
-        <>
+        <div >
             <Header />
             <div css={tw`  flex justify-center mt-12 p-10`}>
                 <div css={tw` shadow-md h-64 w-1/3  text-center rounded-lg    `} >
@@ -19,7 +19,7 @@ const About = () => {
                 </div >
             </div>
             <Footer />
-        </>
+        </div>
     )
 }
 
