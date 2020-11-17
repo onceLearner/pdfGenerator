@@ -8,7 +8,10 @@ const tabs = [{ id: 1, href: "/", name: "Home" }, { id: 2, href: "/About", name:
 const Header = () => {
     return (
         <div css={tw`flex justify-evenly items-center  shadow-sm    `}>
-            <Image src="/logo.png" height="80vh" width="90vw" />
+            <Link href="/">
+                <Image css={tw` hover:cursor-pointer`} src="/logo.png" height="80vh" width="90vw" />
+            </Link>
+
             <ul css={tw` flex  justify-evenly gap-5`} >
                 {tabs.map(tab => (
                     <li key={tab.id} >

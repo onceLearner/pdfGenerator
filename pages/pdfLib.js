@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 
 import { PDFDocument, StandardFonts, rgb } from 'pdf-lib'
 import tw from 'twin.macro'
+import Header from './components/Header'
+import Footer from './components/Footer'
 
 const handlePdf = async (fileInputed, numPages) => {
 
@@ -36,16 +38,21 @@ const PdfLib = () => {
     const [file, setFile] = useState('');
     const [numPages, setNumPages] = useState(1)
     return (
-        <div css={tw` m-12  p-12`}>
-            <input type="text" onChange={(evt) => setNumPages(evt.target.value)} css={tw` mr-2 border border-gray-500 p-2 `} placeholder="number of pages..." />
-            <input type="file" accept=".pdf" onChange={evt => setFile(evt.target.files[0].arrayBuffer())} />
+        <div>
+            <Header />
+
+            <div css={tw` m-12  p-12`}>
+                <input type="text" onChange={(evt) => setNumPages(evt.target.value)} css={tw` mr-2 border border-gray-500 p-2 `} placeholder="number of pages..." />
+                <input type="file" accept=".pdf" onChange={evt => setFile(evt.target.files[0].arrayBuffer())} />
 
                 downnload file
             <button css={tw` border  border-blue-600   m-4 p-2 text-blue-500 hover:text-white hover:bg-blue-500 `} onClick={() => { handlePdf(file, numPages) }}> generate pdf </button>
 
 
 
-        </div >
+            </div >
+            <Footer />
+        </div>
     )
 }
 

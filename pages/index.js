@@ -11,6 +11,7 @@ import tw from "twin.macro";
 
 const Home = () => {
 
+
   return (
     <>
       <Head>
@@ -18,7 +19,7 @@ const Home = () => {
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
 
       </Head>
-      <body css={tw` h-full`}>
+      <main css={tw` h-full`}>
         <Header />
         <div css={tw` p-12 md:m-12   flex flex-wrap justify-evenly items-center gap-8`} >
           <TemplateOption />
@@ -27,7 +28,7 @@ const Home = () => {
         </div>
 
         <Footer />
-      </body>
+      </main>
     </>
   )
 }

@@ -2,6 +2,8 @@ import React, { useState } from "react"
 import styled from "@emotion/styled";
 import tw from "twin.macro";
 import jsPDf from "jspdf";
+import Footer from "./components/Footer";
+import Header from "./components/Header";
 
 const Button = styled.button`
 ${tw` focus:outline-none w-32 p-3 bg-white text-purple-600 border border-purple-700 hover:bg-purple-600 hover:text-white 
@@ -36,15 +38,20 @@ const Template = () => {
     const [file, setFile] = useState("noFile");
 
     return (
-        <div css={tw` flex items-center justify-center `} >
-            <div css={tw` flex  items-center justify-between  p-10     `} >
-                <input type="file" accept=".pdf" css={tw` `} onChange={e => setFile(e.target.files[0].name)} />
+        <div>
+            <Header />
+            <div css={tw` flex items-center justify-center `}  >
+                <div css={tw` flex  items-center justify-between  p-10     `} >
+                    <input type="file" accept=".pdf" css={tw` `} onChange={e => setFile(e.target.files[0].name)} />
 
-                <Button onClick={() => handeFile(file)} > generate pdf  </Button>
+                    <Button onClick={() => handeFile(file)} > generate pdf  </Button>
+                </div>
+
+
             </div>
-
-
+            <Footer />
         </div>
+
     )
 }
 
