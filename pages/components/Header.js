@@ -3,13 +3,13 @@ import Image from "next/image"
 import Link from "next/link"
 import tw from 'twin.macro'
 import MenuIcon from '@material-ui/icons/Menu'
+import HeaderPopUp from './HeaderPopUp'
 
 const tabs = [{ id: 1, href: "/", name: "Home" }, { id: 2, href: "/About", name: "About" }, { id: 3, href: "/ReachMe", name: "Reach Me" }]
 
 const Header = () => {
     const [screenSize, setScreenSize] = useState(process.browser ? window.innerWidth : null);
     if (process.browser) window.onresize = () => { setScreenSize(window.innerWidth) }
-
 
 
 
@@ -28,7 +28,7 @@ const Header = () => {
                         </li>
                     ))}
                 </ul>
-                : <MenuIcon css={tw` mt-4 ml-24  `} style={{ fontSize: "40px" }} />
+                : <HeaderPopUp />
             }
 
         </div >
