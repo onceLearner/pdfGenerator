@@ -30,8 +30,8 @@ const ReachMe = () => {
             <div css={tw`flex justify-center items-center  `} >
 
 
-                <div css={tw` md:shadow-md p-8 m-8 md:w-2/3  flex justify-center  flex-col items-center    `}>
-                    <p css={tw`text-lg  text-gray-800 font-hairline`}> Please Fill this Form </p>
+                <div css={tw` md:shadow-md md:p-8 p-2 m-8 md:w-2/3 w-full  flex justify-center  flex-col items-center    `}>
+                    <p css={tw`text-lg  text-gray-900 font-hairline`}> Please Fill this Form </p>
                     <div css={tw` flex flex-wrap items-stretch justify-center `}>
                         <InputName placeholder="enter your name" />
                         <InputEmail placeholder="enter your email " />

@@ -41,7 +41,7 @@ const Template = () => {
         <div>
             <Header />
             <div css={tw` flex items-center justify-center `}  >
-                <div css={tw` flex  items-center justify-between  p-10     `} >
+                <div css={tw`  `} >
                     <input type="file" accept=".pdf" css={tw` `} onChange={e => setFile(e.target.files[0].name)} />
 
                     <Button onClick={() => handeFile(file)} > generate pdf  </Button>
@@ -49,7 +49,9 @@ const Template = () => {
 
 
             </div>
-            <Footer />
+            <div css={tw`fixed bottom-0`}>
+                <Footer />
+            </div>
         </div>
 
     )

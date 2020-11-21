@@ -6,10 +6,10 @@ import Header from './components/Header'
 
 const About = () => {
     return (
-        <div >
+        <div css={tw``} >
             <Header />
             <div css={tw`  flex justify-center mt-12 p-10`}>
-                <div css={tw` shadow-md h-64 w-1/3  text-center rounded-lg    `} >
+                <div css={tw` shadow-md h-64 w-full md:w-1/3  text-center rounded-lg    `} >
                     <p css={tw` p-2 text-2xl text-gray-900 `}>what is Pdf Generator ? </p>
                     <p css={tw` text-gray-600 text-lg  `} >
                         Pdf Generator is a Utility Wep App to help designer , Kdp user create staf they use daily

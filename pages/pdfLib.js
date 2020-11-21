@@ -4,6 +4,7 @@ import { PDFDocument, StandardFonts, rgb } from 'pdf-lib'
 import tw from 'twin.macro'
 import Header from './components/Header'
 import Footer from './components/Footer'
+import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 
 const handlePdf = async (fileInputed, numPages) => {
 
@@ -40,18 +41,26 @@ const PdfLib = () => {
     return (
         <div>
             <Header />
+            <div css={tw` flex flex-col items-center md:mt-16`} >
+                <div css={tw` m-4   flex flex-col justify-center  items-center space-y-8 md:shadow-lg rounded-lg p-16 h-full w-full md:w-7/12  `} style={{ height: "40vh" }}>
+                    <div css={tw` text-center bg-gradient-to-r from-blue-600 to-indigo-600 rounded-md w-64   cursor-pointer  `}>
+                        <input type="file" id="file" accept=".pdf" css={tw`w-64 h-1 hidden cursor-pointer`} onChange={evt => setFile(evt.target.files[0].arrayBuffer())} />
+                        <label for="file" css={tw` p-4   text-white  cursor-pointer font-semibold text-lg `}> Choose a file
+                        <CloudUploadIcon css={tw`text-blue-100 m-4`} />
+                        </label>
+                    </div>
+                    <div css={tw` mt-4  space-y-2 text-gray-600`}>
+                        <label for="numPage">page Count </label>
+                        <input type="text" css={tw` focus:outline-none focus:border-2 focus:border-blue-600  mr-2 border border-gray-500 p-2  w-full `} id="numPage" onChange={(evt) => setNumPages(evt.target.value)} placeholder="number of pages..." />
+                    </div>
 
-            <div css={tw` m-12  p-12`}>
-                <input type="text" onChange={(evt) => setNumPages(evt.target.value)} css={tw` mr-2 border border-gray-500 p-2 `} placeholder="number of pages..." />
-                <input type="file" accept=".pdf" onChange={evt => setFile(evt.target.files[0].arrayBuffer())} />
-
-                downnload file
-            <button css={tw` border  border-blue-600   m-4 p-2 text-blue-500 hover:text-white hover:bg-blue-500 `} onClick={() => { handlePdf(file, numPages) }}> generate pdf </button>
-
-
-
+                    <button css={tw` border  border-blue-600  p-2 md:w-1/3  text-lg font-semibold  rounded-3xl  mb-8 text-blue-500 hover:text-white hover:bg-blue-500 w-full `} onClick={() => { handlePdf(file, numPages) }}>
+                        generate pdf </button>
+                </div>
             </div >
-            <Footer />
+            <div css={tw`fixed bottom-0 `}>
+                <Footer />
+            </div>
         </div>
     )
 }

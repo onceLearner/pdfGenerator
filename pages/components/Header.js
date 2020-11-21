@@ -16,7 +16,7 @@ const Header = () => {
     return (
         <div css={tw`flex justify-evenly  md:mb-1 mb-12     `}  >
             <Link href="/">
-                <Image css={tw` hover:cursor-pointer object-cover`} src="/logo.png" height="100" width="150vw" />
+                <Image css={tw` hover:cursor-pointer object-cover`} src="/logo.png" height={screenSize > 700 ? `100` : `80`} width={screenSize > 700 ? `130vw` : `80vw`} />
             </Link>
             {screenSize > 700 ?
                 <ul css={tw` flex  justify-evenly gap-5 mt-8`} >

@@ -12,8 +12,8 @@ const HeaderPopUp = (props) => {
     const [isVisible, setIsVisible] = useState(false);
 
     const Icon = isVisible ?
-        <CloseIcon css={tw`  w-full transition delay-500 ease-in   `} style={{ fontSize: "40px" }} /> :
-        <MenuIcon css={tw`  w-full   `} style={{ fontSize: "40px" }} />;
+        <CloseIcon css={tw`  w-full transition delay-500 ease-in   `} style={{ fontSize: "35px" }} /> :
+        <MenuIcon css={tw`  w-full   `} style={{ fontSize: "35px" }} />;
 
 
 
@@ -23,7 +23,7 @@ const HeaderPopUp = (props) => {
             <button css={tw` mt-4 ml-24 focus:outline-none  `} onClick={() => setIsVisible(!isVisible)}  >{Icon}</button>
 
             {isVisible &&
-                <div css={tw` shadow-xl  text-center mt-20  bg-white  w-screen right-0 top-0 left-0 h-64   absolute z-10 `}>
+                <div css={tw`absolute right-0  left-0 z-10 w-screen h-64  shadow-xl  text-center mt-20  bg-white   `}>
                     <ul css={tw`  mt-8`} >
                         {tabs.map(tab => (
                             <li key={tab.id} css={tw` mt-5 `} >
