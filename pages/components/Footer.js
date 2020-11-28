@@ -13,11 +13,11 @@ const urlGithub = "https://github/oncelearner";
 
 const Footer = () => {
     return (
-        <div css={tw` md:fixed relative bottom-0 flex justify-center flex-shrink-0 p-5 pt-8  w-screen bg-indigo-900  `}>
+        <div css={tw` md:fixed relative bottom-0 flex justify-center flex-shrink-0 p-5 pt-8  w-screen bg-gray-100 border border-t-2   `}>
             <div css={tw` flex justify-evenly gap-5`} >
-                <p css={tw` text-gray-300 `}> Med Issati ©2020 </p>
-                <TwitterIcon css={tw` text-gray-300 hover:text-gray-800 hover:cursor-pointer `} onClick={() => handleClick(urlTwitter)} />
-                <GitHubIcon css={tw` text-gray-300 hover:text-gray-900 hover:cursor-pointer `} onClick={() => handleClick(urlGithub)} />
+                <p css={tw` text-gray-400 `}> Med Issati ©2020 </p>
+                <TwitterIcon css={tw` text-gray-500 hover:text-gray-800 hover:cursor-pointer `} onClick={() => handleClick(urlTwitter)} />
+                <GitHubIcon css={tw` text-gray-500 hover:text-gray-900 hover:cursor-pointer `} onClick={() => handleClick(urlGithub)} />
                 <span css={tw` text-gray-500 font-thin`}> made with <FavoriteIcon css={tw` text-red-700 text-base`} />  Next.js</span>
             </div>
 

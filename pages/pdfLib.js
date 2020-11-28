@@ -43,10 +43,10 @@ const PdfLib = () => {
             <Header />
             <div css={tw` flex flex-col items-center md:mt-16`} >
                 <div css={tw` m-4   flex flex-col justify-center  items-center space-y-8 md:shadow-lg rounded-lg p-16 h-full w-full md:w-7/12  `} style={{ height: "40vh" }}>
-                    <div css={tw` text-center bg-gradient-to-r from-blue-600 to-indigo-600 rounded-md w-64   cursor-pointer  `}>
+                    <div css={tw` text-center bg-gradient-to-t from-gray-200 to-gray-300 rounded-md w-64   cursor-pointer hover:bg-gray-800  `}>
                         <input type="file" id="file" accept=".pdf" css={tw`w-64 h-1 hidden cursor-pointer`} onChange={evt => setFile(evt.target.files[0].arrayBuffer())} />
-                        <label for="file" css={tw` p-4   text-white  cursor-pointer font-semibold text-lg `}> Choose a file
-                        <CloudUploadIcon css={tw`text-blue-100 m-4`} />
+                        <label for="file" css={tw` p-4   text-gray-700  cursor-pointer font-semibold text-lg `}> Choose a file
+                        <CloudUploadIcon css={tw`text-gray-700 m-4`} />
                         </label>
                     </div>
                     <div css={tw` mt-4  space-y-2 text-gray-600`}>
