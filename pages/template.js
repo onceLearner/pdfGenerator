@@ -17,8 +17,8 @@ const handeFile = (file) => {
     let doc = new jsPDf("p", "in", [6, 9]);
 
 
-    for (let i = 1; i < 120; i++) {
-        doc.addPage("p", "in", [6, 9]);
+    for (let i = 1; i < 110; i++) {
+        doc.addPage("p", "in", [8.625, 11.25]);
         doc.setLineWidth(0.01);
         let iteration = 17;
         while (iteration) {
@@ -38,9 +38,9 @@ const Template = () => {
     const [file, setFile] = useState("noFile");
 
     return (
-        <div>
+        <div css={tw` flex flex-col h-screen`}>
             <Header />
-            <div css={tw` flex items-center justify-center `}  >
+            <div css={tw` flex  flex-auto items-center justify-center `}  >
                 <div css={tw`  `} >
                     <input type="file" accept=".pdf" css={tw` `} onChange={e => setFile(e.target.files[0].name)} />
 
@@ -49,7 +49,7 @@ const Template = () => {
 
 
             </div>
-            <div css={tw`fixed bottom-0`}>
+            <div>
                 <Footer />
             </div>
         </div>

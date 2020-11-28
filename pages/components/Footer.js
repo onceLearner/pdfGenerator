@@ -13,7 +13,7 @@ const urlGithub = "https://github/oncelearner";
 
 const Footer = () => {
     return (
-        <div style={{ fontFamily: "montserrat", fontSize: "13px" }} css={tw` md:fixed relative bottom-0 flex justify-center flex-shrink-0 p-5 pt-8  w-screen bg-gray-100   `}>
+        <div style={{ fontFamily: "montserrat", fontSize: "13px" }} css={tw`  flex justify-center flex-shrink-0 p-5  pt-8  w-screen bg-gray-100   `}>
             <div css={tw` flex justify-evenly gap-5`} >
                 <p css={tw` text-gray-600 `}> Med Issati ©2020 </p>
                 <TwitterIcon css={tw` text-gray-500 hover:text-gray-800 hover:cursor-pointer `} onClick={() => handleClick(urlTwitter)} />

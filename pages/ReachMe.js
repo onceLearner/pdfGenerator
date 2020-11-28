@@ -25,9 +25,9 @@ const ReachMe = () => {
     const [isSpin, setIsSpin] = useState(false)
 
     return (
-        <>
+        <div css={tw` flex flex-col h-screen`}>
             <Header />
-            <div css={tw`flex justify-center items-center  `} >
+            <div css={tw`flex flex-auto justify-center items-center  `} >
 
 
                 <div css={tw` md:shadow-md md:p-8 p-2 m-8 md:w-2/3 w-full  flex justify-center  flex-col items-center    `}>
@@ -49,7 +49,7 @@ const ReachMe = () => {
             </div>
             <Footer />
 
-        </>
+        </div>
     )
 }
 
