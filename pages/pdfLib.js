@@ -51,11 +51,10 @@ const PdfLib = () => {
                     </div>
                     <div css={tw` mt-4  space-y-2 text-gray-600`}>
                         <label for="numPage">page Count </label>
-                        <input type="text" css={tw` focus:outline-none focus:border-2 focus:border-blue-600  mr-2 border border-gray-500 p-2  w-full `} id="numPage" onChange={(evt) => setNumPages(evt.target.value)} placeholder="number of pages..." />
+                        <input type="text" css={tw` rounded-md focus:outline-none focus:border-2 focus:border-blue-600  mr-2 border border-gray-500 p-2  w-full `} id="numPage" onChange={(evt) => setNumPages(evt.target.value)} placeholder="number of pages..." />
                     </div>
-
-                    <button css={tw` border  border-blue-600  p-2 md:w-1/3  text-lg font-semibold  rounded-3xl  mb-8 text-blue-500 hover:text-white hover:bg-blue-500 w-full `} onClick={() => { handlePdf(file, numPages) }}>
-                        generate pdf </button>
+                    <button css={tw` border-2  border-gray-700  p-2 md:w-1/3  text-lg font-semibold  rounded-3xl  mb-8 text-gray-800 hover:text-white hover:bg-blue-500 w-full `} onClick={() => { handlePdf(file, numPages) }}>
+                        Generate PDF </button>
                 </div>
             </div >
             <div css={tw`fixed bottom-0 `}>

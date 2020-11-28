@@ -26,6 +26,7 @@ const Home = () => {
       <main css={tw` h-screen `}>
         <Header />
         <div css={tw`bg-gradient-to-b from-white to-pink-100`}>
+
           <div css={tw` p-12 md:m-12   flex flex-wrap justify-evenly items-center gap-8`} >
             <TemplateOption />
             <PdfLibOption />
