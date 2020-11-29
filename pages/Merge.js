@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 import { PDFDocument, StandardFonts, rgb } from 'pdf-lib'
 import tw from 'twin.macro'
@@ -47,7 +47,7 @@ const handlePdf = async (fileInputed, numPages, size) => {
     window.open(window.URL.createObjectURL(blob))
 }
 
-const PdfLib = () => {
+const Merge = () => {
     const [file, setFile] = useState('');
     const [numPages, setNumPages] = useState(1)
     const [size, setsize] = useState({ width: 6, height: 9, isBleed: false });
@@ -89,5 +89,4 @@ const PdfLib = () => {
     )
 }
 
-export default PdfLib
-
+export default Merge;

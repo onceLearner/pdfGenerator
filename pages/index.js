@@ -7,6 +7,7 @@ import TemplateOption from "./components/TemplateOption";
 import PdfLibOption from "./components/pdfLibOption"
 
 import tw from "twin.macro";
+import MergeOpt from "./components/MergeOpt";
 
 
 const Home = () => {
@@ -30,6 +31,7 @@ const Home = () => {
           <div css={tw` p-12 md:m-12   flex flex-wrap justify-evenly items-center gap-8`} >
             <TemplateOption />
             <PdfLibOption />
+            <MergeOpt />
 
           </div>
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
