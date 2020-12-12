@@ -10,9 +10,9 @@ const MergeOpt = (props) => {
 
     return (
         <Link href="/pdfLib">
-            <a css={tw` flex flex-col items-center p-8 md:w-5/12 w-full shadow-lg hover:border-2 hover:border-gray-600   h-64 hover:shadow-2xl transition ease-in duration-200   transform  hover:-translate-y-2 hover:cursor-pointer  bg-gradient-to-r  from-gray-700 to-gray-800`}>
+            <a css={tw` flex flex-col items-center p-8 md:w-5/12 w-full shadow-lg hover:border-2 hover:border-gray-600   h-64 hover:shadow-2xl transition ease-in duration-200  hover:scale-110  transform  hover:-translate-y-2 hover:cursor-pointer  bg-gradient-to-r  from-gray-200 to-gray-400`}>
                 <div css={tw`text-center text-5xl font-extrabold leading-none mb-8 `}>
-                    <span style={{ fontFamily: "montserrat" }} css={tw`bg-clip-text text-transparent bg-gradient-to-r from-gray-400 to-gray-200 `}>
+                    <span style={{ fontFamily: "montserrat" }} css={tw`bg-clip-text text-transparent bg-gradient-to-r from-gray-800 to-gray-600 `}>
                         Merge two Pdfs
                      </span>
                 </div>

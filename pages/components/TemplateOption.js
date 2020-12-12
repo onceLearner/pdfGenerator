@@ -11,7 +11,7 @@ const TemplateOption = () => {
     return (
         <Link href="/template">
 
-            <a css={tw` md:w-5/12    p-8 flex   flex-col items-center   shadow-lg hover:shadow-2xl transform  transition ease-in duration-300 hover:border-2 hover:border-pink-500    hover:-translate-y-2  h-64 hover:cursor-pointer bg-gradient-to-r from-gray-100 to-gray-300`}>
+            <a css={tw` md:w-5/12    p-8 flex   flex-col items-center   shadow-lg hover:shadow-2xl transform  transition ease-in duration-300 hover:border-2 hover:scale-110     h-64 hover:cursor-pointer bg-gradient-to-r from-gray-100 to-gray-300`}>
                 <div css={tw`text-center text-5xl font-extrabold leading-none mb-2 `}>
                     <span style={{ fontFamily: "montserrat" }} css={tw`bg-clip-text text-transparent bg-gradient-to-r from-orange-800 to-black `}>
                         Use Our Template

@@ -28,10 +28,11 @@ const Home = () => {
         <Header />
         <div css={tw`bg-gradient-to-b from-white to-pink-100`}>
 
-          <div css={tw` p-12 md:m-12   flex flex-wrap justify-evenly items-center gap-8`} >
+          <div css={tw` p-12 md:m-12   flex flex-wrap justify-evenly items-center gap-12 md:gap-20`} >
+            <MergeOpt />
             <TemplateOption />
             <PdfLibOption />
-            <MergeOpt />
+
 
           </div>
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
