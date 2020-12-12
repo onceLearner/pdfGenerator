@@ -6,7 +6,7 @@ import Header from './components/Header'
 import Footer from './components/Footer'
 import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 
-const handlePdf = async (fileInputed, numPages, size) => {
+const handlePdf = async (fileInputed, numPages, size, templatePage) => {
 
     // create a  Bytes container for the inputed file
 
@@ -20,7 +20,7 @@ const handlePdf = async (fileInputed, numPages, size) => {
     const copyFromPdf = await PDFDocument.load(await fileInputed);
 
     // // copy 1 st page fromthe file to the ouput file 
-    const [copyfromPage] = await pdfDoc.copyPages(copyFromPdf, [2]);
+    const [copyfromPage] = await pdfDoc.copyPages(copyFromPdf, [templatePage]);
 
     // set the size  1 inch => 72  unit
     const { x, y, height, width } = await copyfromPage.getTrimBox();
@@ -51,6 +51,7 @@ const PdfLib = () => {
     const [file, setFile] = useState('');
     const [numPages, setNumPages] = useState(1)
     const [size, setsize] = useState({ width: 6, height: 9, isBleed: false });
+    const [tempPg, setTempPg] = useState(1);
 
     return (
         <div css={tw` flex flex-col h-screen`}>
@@ -71,14 +72,18 @@ const PdfLib = () => {
                     </div>
                     <div css={tw` space-x-3   flex  flex-wrap justify-center`}>
                         <input type="text" css={tw` border w-24 md:w-3/12 p-1`} onChange={(evt) => setsize({ ...size, width: evt.target.value })} placeholder="width" />
-                        <input type="text" css={tw` border w-24 md:w-3/12 p-1`} onChange={(evt) => setsize({ ...size, height: evt.target.value })} placeholder="height" />
+                        <input type="text" css={tw` border w-24 md:w-3/12 p-1`} onChange={(evt) => setsize({ ...size, height: evt.target.value })} placeholder="height " />
                         <div css={tw` flex gap-4 items-center md:pt-0 pt-4    `}>
                             <label for="bleed" css={tw` text-gray-700`} > bleed</label>
                             <input type="checkbox" name="bleed" value="bleed" onClick={(evt => { setsize({ ...size, isBleed: !size.isBleed }) })} />
                         </div>
+                        <div css={tw` m-6 pt-4 flex flex-col space-y-4 `}>
+                            <label for="bleed" css={tw` text-gray-700 text-sm`} > enter the page number we will use to generate the template </label>
+                            <input type="text" css={tw`border md:w-11/12 p-1`} onChange={(evt) => { setTempPg(evt.target.value) }} placeholder="page number" />
+                        </div>
 
                     </div>
-                    <button css={tw` flex-none border-2  border-gray-700  p-2 md:w-1/3  text-lg font-semibold  rounded-3xl  mb-8 text-gray-800 hover:text-white hover:bg-blue-500 w-full `} onClick={() => { handlePdf(file, numPages, size) }}>
+                    <button css={tw` flex-none border-2  border-gray-700  p-2 md:w-1/3  text-lg font-semibold  rounded-3xl  mb-8 text-gray-800 hover:text-white hover:bg-blue-500 w-full `} onClick={() => { handlePdf(file, numPages, size, tempPg) }}>
                         Generate PDF </button>
                 </div>
             </div >
