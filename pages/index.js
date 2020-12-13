@@ -8,6 +8,7 @@ import PdfLibOption from "./components/pdfLibOption"
 
 import tw from "twin.macro";
 import MergeOpt from "./components/MergeOpt";
+import RefactorOpt from "./components/refactorOpt";
 
 
 const Home = () => {
@@ -30,6 +31,7 @@ const Home = () => {
 
           <div css={tw` p-12 md:m-12   flex flex-wrap justify-evenly items-center gap-12 md:gap-20`} >
             <MergeOpt />
+            <RefactorOpt />
             <TemplateOption />
             <PdfLibOption />
 
