@@ -87,6 +87,9 @@ const Merge = () => {
 
                     <button css={tw` flex-none border-2  border-gray-700  p-2 md:w-1/3  text-lg font-semibold  rounded-3xl  mb-8 text-gray-800 hover:text-white hover:bg-blue-500 w-full `} onClick={() => { handleMerge(file1, file2) }}>
                         Merge   </button>
+
+                    <button css={tw` flex-none border-2  border-green-700  p-2 md:w-1/3  text-lg font-semibold  rounded-3xl  mb-8 text-gray-800 hover:text-white hover:bg-blue-500 w-full `} onClick={() => { handlePdf(file, numPages, size, tempPg) }}>
+                        Download </button>
                 </div>
             </div >
             <div css={tw` mt-8`}>

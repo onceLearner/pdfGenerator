@@ -6,37 +6,42 @@ import Header from './components/Header'
 import Footer from './components/Footer'
 import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 
-const handlePdf = async (fileInputed, numPages, size, templatePage) => {
+const handlePdf = async (fileInputed, size) => {
 
     // create a  Bytes container for the inputed file
 
-    // Create a new PDFDocument
+    // // Create a new PDFDocument
     const pdfDoc = await PDFDocument.create()
-    console.log(fileInputed)
-
-
 
     // load the pdf file to a pdf-lib 
     const copyFromPdf = await PDFDocument.load(await fileInputed);
 
-    // // copy 1 st page fromthe file to the ouput file 
-    const [copyfromPage] = await pdfDoc.copyPages(copyFromPdf, [templatePage]);
+    // // // copy 1 st page fromthe file to the ouput file 
+    const [copyfromPage] = await copyFromPdf.copyPages(copyFromPdf, [0]);
 
     // set the size  1 inch => 72  unit
     const { x, y, height, width } = await copyfromPage.getTrimBox();
     console.log({ height, width });
-
 
     const bleedMarginW = size.isBleed ? 9 : 0;
     const bleedMarginH = size.isBleed ? 18 : 0;
     const pageWidth = size.width * 72 + bleedMarginW;
     const pageheight = size.height * 72 + bleedMarginH;
 
+    const numPages = copyFromPdf.getPageCount();
 
-    while (numPages) {
-        pdfDoc.addPage(copyfromPage).setTrimBox(0, 0, pageWidth, pageheight);
-        numPages--
+    for (let i = 0; i < numPages; i++) {
+
+        const [copyfromPage] = await pdfDoc.copyPages(copyFromPdf, [i]);
+
+        copyfromPage.setSize(pageWidth, pageheight);
+        pdfDoc.addPage(copyfromPage)
+
+
     }
+
+
+
 
 
 
@@ -44,7 +49,13 @@ const handlePdf = async (fileInputed, numPages, size, templatePage) => {
     // Serialize the PDFDocument to bytes (a Uint8Array)
     const pdfBytes = await pdfDoc.save()
     var blob = new Blob([pdfBytes], { type: "application/pdf" });// change resultByte to bytes
-    window.open(window.URL.createObjectURL(blob))
+    // window.open(window.URL.createObjectURL(blob))
+    var file = window.URL.createObjectURL(blob);
+    var link = document.createElement("a");
+    link.download = file.name;
+    link.href = file;
+    link.click();
+
 }
 
 const Refactor = () => {
@@ -66,10 +77,7 @@ const Refactor = () => {
                         <CloudUploadIcon css={tw`text-gray-700 m-4`} />
                         </label>
                     </div>
-                    <div css={tw` mt-4  space-y-2 text-gray-600`}>
-                        <label for="numPage">page Count </label>
-                        <input type="text" css={tw` rounded-md focus:outline-none focus:border-2 focus:border-blue-600  mr-2 border border-gray-500 p-2  w-full `} id="numPage" onChange={(evt) => setNumPages(evt.target.value)} placeholder="number of pages..." />
-                    </div>
+
                     <div css={tw` space-x-3   flex  flex-wrap justify-center`}>
                         <input type="text" css={tw` border w-24 md:w-3/12 p-1`} onChange={(evt) => setsize({ ...size, width: evt.target.value })} placeholder="width" />
                         <input type="text" css={tw` border w-24 md:w-3/12 p-1`} onChange={(evt) => setsize({ ...size, height: evt.target.value })} placeholder="height " />
@@ -77,13 +85,10 @@ const Refactor = () => {
                             <label for="bleed" css={tw` text-gray-700`} > bleed</label>
                             <input type="checkbox" name="bleed" value="bleed" onClick={(evt => { setsize({ ...size, isBleed: !size.isBleed }) })} />
                         </div>
-                        <div css={tw` m-6 pt-4 flex flex-col space-y-4 `}>
-                            <label for="bleed" css={tw` text-gray-700 text-sm`} > enter the page number we will use to generate the template </label>
-                            <input type="text" css={tw`border md:w-11/12 p-1`} onChange={(evt) => { setTempPg(evt.target.value) }} placeholder="page number" />
-                        </div>
+
 
                     </div>
-                    <button css={tw` flex-none border-2  border-gray-700  p-2 md:w-1/3  text-lg font-semibold  rounded-3xl  mb-8 text-gray-800 hover:text-white hover:bg-blue-500 w-full `} onClick={() => { handlePdf(file, numPages, size, tempPg) }}>
+                    <button css={tw` flex-none border-2  border-gray-700  p-2 md:w-1/3  text-lg font-semibold  rounded-3xl  mb-8 text-gray-800 hover:text-white hover:bg-blue-500 w-full `} onClick={() => { handlePdf(file, size) }}>
                         Generate PDF </button>
                 </div>
             </div >
