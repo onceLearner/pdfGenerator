@@ -19,20 +19,35 @@ const handleMerge = async (file1, file2) => {
     const copyFromPdf1 = await PDFDocument.load(await file1);
     const copyFromPdf2 = await PDFDocument.load(await file2);
 
+
+
     // getting the page counts of the two pdfs
     const pageCount1 = copyFromPdf1.getPageCount();
     const pageCount2 = copyFromPdf2.getPageCount();
 
+    const [copyfromPage] = await pdfDoc.copyPages(copyFromPdf1, [0]);
+    const { x, y, height, width } = await copyfromPage.getTrimBox();
     // copy pdf1 inside the new pdf
-    for (let i = 0; i < pageCount1; i++)  pdfDoc.addPage(await copyFromPdf1.copyPages[i]);
+    for (let i = 0; i < pageCount1; i++) {
+
+        const [copyfromPage] = await pdfDoc.copyPages(copyFromPdf1, [i]);
+
+        pdfDoc.addPage(copyfromPage).setTrimBox(0, 0, width, height);
+
+    }
 
     // copy pdf2 inside the new pdf
-    for (let i = 0; i < pageCount2; i++)  pdfDoc.addPage(await copyFromPdf2.copyPages[i]);
+    for (let i = 0; i < pageCount2; i++) {
+        const [copyfromPage] = await pdfDoc.copyPages(copyFromPdf2, [i]);
+        pdfDoc.addPage(copyfromPage).setTrimBox(0, 0, width, height);
+    }
 
 
 
-    // // // copy 1 st page fromthe file to the ouput file 
-    // const [copyfromPage] = await pdfDoc.copyPages(copyFromPdf, [2]);
+
+    // set the title for the new pdf
+
+    pdfDoc.setTitle("Merged Pdf " + new Date().getSeconds());
 
 
 
@@ -47,7 +62,6 @@ const handleMerge = async (file1, file2) => {
 const Merge = () => {
     const [file1, setFile1] = useState('');
     const [file2, setFile2] = useState("");
-    const [numPages, setNumPages] = useState(1)
     const [size, setsize] = useState({ width: 6, height: 9, isBleed: false });
 
     return (
@@ -59,14 +73,14 @@ const Merge = () => {
                 <div css={tw`   flex flex-col  justify-center  items-center space-y-10 md:shadow-lg    rounded-lg mb-8 p-16 lg:h-full w-full  md:w-7/12  `} >
                     <div css={tw` text-sm text-gray-600 font-extrabold transform -translate-y-8`}>remark : files should be uploaded in the same order as these buttons below </div>
                     <div css={tw` text-center bg-gradient-to-t from-gray-200 to-gray-300 rounded-md w-64   cursor-pointer hover:bg-gray-800  `}>
-                        <input type="file" id="file" accept=".pdf" css={tw`w-64 h-1 hidden cursor-pointer`} onChange={evt => setFile1(evt.target.files[0].arrayBuffer())} />
-                        <label for="file" css={tw` p-4   text-gray-700  cursor-pointer font-semibold text-lg `}> select the first file
+                        <input type="file" id="file1" accept=".pdf" css={tw`w-64 h-1 hidden cursor-pointer`} onChange={evt => setFile1(evt.target.files[0].arrayBuffer())} />
+                        <label for="file1" css={tw` p-4   text-gray-700  cursor-pointer font-semibold text-lg `}> select the first file
                         <CloudUploadIcon css={tw`text-gray-700 m-4`} />
                         </label>
                     </div>
                     <div css={tw` text-center bg-gradient-to-t from-gray-200 to-gray-300 rounded-md w-64   cursor-pointer hover:bg-gray-800  `}>
-                        <input type="file" id="file" accept=".pdf" css={tw`w-64 h-1 hidden cursor-pointer`} onChange={evt => setFile2(evt.target.files[0].arrayBuffer())} />
-                        <label for="file" css={tw` p-4   text-gray-700  cursor-pointer font-semibold text-lg `}> select the second file
+                        <input type="file" id="file2" accept=".pdf" css={tw`w-64 h-1 hidden cursor-pointer`} onChange={evt => setFile2(evt.target.files[0].arrayBuffer())} />
+                        <label for="file2" css={tw` p-4   text-gray-700  cursor-pointer font-semibold text-lg `}> select the second file
                         <CloudUploadIcon css={tw`text-gray-700 m-4`} />
                         </label>
                     </div>
