@@ -14,11 +14,11 @@ const Header = () => {
 
 
     return (
-        <div css={tw`flex justify-evenly items-center  md:mb-2  p-2  shadow-md    `}  >
+        <div css={tw`flex justify-evenly items-center  md:mb-2  p-4 shadow-sm bg-gradient-to-b from-white to-gray-100       `}  >
             <Link href="/">
                 <div css={tw` flex items-center cursor-pointer `} >
-                    <Image src="/logo.png" width="50" height="50" css={tw`  object-contain`} />
-                    <a css={tw` md:text-xl text-gray-700`} >Publisher Factory</a>
+                    <Image src="/logo.png" width="40" height="30" css={tw`  object-contain`} />
+                    <a css={tw` md:text-xl text-gray-700`} style={{ fontFamily: "Audiowide" }} >Publisher Factory</a>
                 </div>
 
 
