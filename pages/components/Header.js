@@ -18,7 +18,7 @@ const Header = () => {
             <Link href="/">
                 <div css={tw` flex items-center cursor-pointer`} >
                     <Image src="/logo.png" width="50" height="50" css={tw`  object-contain`} />
-                    <p style={{ fontFamily: "Audiowide" }}>Publisher Factory</p>
+                    <a style={{ fontFamily: "Montserrat" }}>Publisher Factory</a>
                 </div>
 
 
