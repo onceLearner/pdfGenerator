@@ -18,7 +18,7 @@ const Header = () => {
             <Link href="/">
                 <div css={tw` flex items-center cursor-pointer `} >
                     <Image src="/logo.png" width="50" height="50" css={tw`  object-contain`} />
-                    <a css={tw` md:text-xl text-gray-700`} style={{ fontFamily: "ubuntu mono" }}>Publisher Factory</a>
+                    <a css={tw` md:text-xl text-gray-700`} >Publisher Factory</a>
                 </div>
 
 
@@ -31,7 +31,7 @@ const Header = () => {
                         {tabs.map(tab => (
                             <li key={tab.id} >
                                 <Link href={tab.href}>
-                                    <a css={tw` hover:border-b-4 text-lg   font-thin   hover:border-indigo-400 hover:text-indigo-500 hover:cursor-pointer p-2`}>{tab.name}</a>
+                                    <a style={{ fontFamily: "Questrial" }} css={tw` hover:border-b-4 text-gray-700 text-lg   font-thin   hover:border-indigo-400 hover:text-indigo-500 hover:cursor-pointer p-2`}>{tab.name}</a>
                                 </Link>
                             </li>
                         ))}
