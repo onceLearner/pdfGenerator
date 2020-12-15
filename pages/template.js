@@ -4,6 +4,7 @@ import tw from "twin.macro";
 import jsPDf from "jspdf";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
+import TemplateCard from "./components/TemplateCard";
 
 const Button = styled.button`
 ${tw` focus:outline-none w-32 p-3 bg-white text-purple-600 border border-purple-700 hover:bg-purple-600 hover:text-white 
@@ -40,13 +41,9 @@ const Template = () => {
     return (
         <div css={tw` flex flex-col h-screen`}>
             <Header />
-            <div css={tw` flex  flex-auto items-center justify-center `}  >
-                <div css={tw`  `} >
-                    <input type="file" accept=".pdf" css={tw` `} onChange={e => setFile(e.target.files[0].name)} />
-
-                    <Button onClick={() => handeFile(file)} > generate pdf  </Button>
-                </div>
-
+            <div css={tw` flex  flex-auto items-center justify-center gap-6 `}  >
+                <TemplateCard />
+                <TemplateCard />
 
             </div>
             <div>

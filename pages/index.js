@@ -20,14 +20,14 @@ const Home = () => {
     <>
 
       <Head>
-        <title>pdf Generator </title>
+        <title>Publisher Factory </title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
 
       </Head>
 
       <main css={tw` h-screen `}>
         <Header />
-        <div css={tw`bg-gradient-to-b from-white to-pink-100`}>
+        <div css={tw`bg-gradient-to-b from-white to-indigo-100`}>
 
           <div css={tw` p-12 md:m-12   flex flex-wrap justify-evenly items-center gap-12 md:gap-20`} >
             <MergeOpt />
