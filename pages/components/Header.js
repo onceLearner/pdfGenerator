@@ -14,21 +14,28 @@ const Header = () => {
 
 
     return (
-        <div css={tw`flex justify-evenly  md:mb-1 mb-12     `}  >
+        <div css={tw`flex justify-evenly items-center  md:mb-2  mb-12   shadow-md    `}  >
             <Link href="/">
-                <Image css={tw` hover:cursor-pointer object-cover`} src="/logo.png" height={screenSize > 700 ? `100` : `80`} width={screenSize > 700 ? `130vw` : `80vw`} />
+                <div css={tw` flex items-center cursor-pointer`} >
+                    <Image src="/logo.png" width="50" height="50" css={tw`  object-contain`} />
+                    <p style={{ fontFamily: "Audiowide" }}>Publisher Factory</p>
+                </div>
+
+
             </Link>
-            {screenSize > 700 ?
-                <ul css={tw` flex  justify-evenly gap-5 mt-8`} >
-                    {tabs.map(tab => (
-                        <li key={tab.id} >
-                            <Link href={tab.href}>
-                                <a css={tw` hover:border-b-4 text-lg font-semibold bg-clip-text text-transparent bg-gradient-to-r from-gray-700 to-gray-900  hover:border-indigo-400 hover:text-indigo-500 hover:cursor-pointer p-2`}>{tab.name}</a>
-                            </Link>
-                        </li>
-                    ))}
-                </ul>
-                : <HeaderPopUp />
+
+            {
+                screenSize > 700 ?
+                    <ul css={tw` flex  justify-evenly  items-center gap-5 mt-8`} >
+                        {tabs.map(tab => (
+                            <li key={tab.id} >
+                                <Link href={tab.href}>
+                                    <a css={tw` hover:border-b-4 text-lg  font-medium  hover:border-indigo-400 hover:text-indigo-500 hover:cursor-pointer p-2`}>{tab.name}</a>
+                                </Link>
+                            </li>
+                        ))}
+                    </ul>
+                    : <HeaderPopUp />
             }
 
         </div >

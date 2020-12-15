@@ -10,7 +10,9 @@ class CustomDocument extends Document {
         return (
             <Html>
                 <Head>
-                    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css" />
+                    <link href="https://fonts.googleapis.com/css?family=Audiowide" rel="stylesheet" type="text/css" />
+                    <link rel="preconnect" href="https://fonts.gstatic.com" />
+                    <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Questrial&display=swap" rel="stylesheet" />
                 </Head>
                 <body>
                     <Main />
