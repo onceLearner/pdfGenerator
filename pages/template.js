@@ -5,6 +5,7 @@ import jsPDf from "jspdf";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import TemplateCard from "./components/TemplateCard";
+import dataArray from "./comp_data/templateCardData"
 
 const Button = styled.button`
 ${tw` focus:outline-none w-32 p-3 bg-white text-purple-600 border border-purple-700 hover:bg-purple-600 hover:text-white 
@@ -36,15 +37,21 @@ const handeFile = (file) => {
 
 
 const Template = () => {
+    console.log(dataArray)
     const [file, setFile] = useState("noFile");
 
     return (
         <div css={tw` flex flex-col h-screen`}>
             <Header />
-            <div css={tw` flex flex-wrap  flex-auto  items-center justify-center gap-6 `}  >
-                <TemplateCard />
-                <TemplateCard />
-                <TemplateCard />
+            <div css={tw` flex flex-wrap  flex-auto  items-center justify-center gap-8 `}  >
+
+                {
+                    dataArray.map(card =>
+                        <TemplateCard title={card.title} imgUrl={card.imgUrl} />
+                    )
+                }
+
+
 
             </div>
             <div>
