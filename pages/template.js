@@ -41,7 +41,8 @@ const Template = () => {
     return (
         <div css={tw` flex flex-col h-screen`}>
             <Header />
-            <div css={tw` flex  flex-auto items-center justify-center gap-6 `}  >
+            <div css={tw` flex flex-wrap  flex-auto  items-center justify-center gap-6 `}  >
+                <TemplateCard />
                 <TemplateCard />
                 <TemplateCard />
 
