@@ -1,4 +1,4 @@
-const data = [
+export const dataArray = [
 
     {
         title: "music sheet",
@@ -12,4 +12,15 @@ const data = [
 ]
 
 
-export default data;
+// those staff only needed because of nextjs build requirements of having a default react comp def export
+import React from 'react'
+
+const templateCardData = () => {
+    return (
+        <div>
+            hh
+        </div>
+    )
+}
+
+export default templateCardData

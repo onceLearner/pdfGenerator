@@ -5,7 +5,7 @@ import jsPDf from "jspdf";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import TemplateCard from "./components/TemplateCard";
-import dataArray from "./comp_data/templateCardData"
+import { dataArray } from "./comp_data/templateCardData"
 
 const Button = styled.button`
 ${tw` focus:outline-none w-32 p-3 bg-white text-purple-600 border border-purple-700 hover:bg-purple-600 hover:text-white 
@@ -35,6 +35,7 @@ const handeFile = (file) => {
 
 }
 
+// to do: add div sitcky to chose size pages ... 
 
 const Template = () => {
     console.log(dataArray)
@@ -64,3 +65,4 @@ const Template = () => {
 
 
 export default Template
+
