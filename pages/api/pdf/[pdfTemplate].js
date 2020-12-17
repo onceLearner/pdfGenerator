@@ -30,12 +30,16 @@ export default (req, res) => {
 
 
 
+    const dirRelativeToPublicFolder = 'asset'
+
+    const dir = path.resolve('./public', dirRelativeToPublicFolder);
+
     try {
         // get the actual path of the project
         var path1 = process.cwd();
 
         // read the file  
-        var file = fs.readFileSync(path1 + "\\public\\asset\\" + pdfTemplate + ".pdf");
+        var file = fs.readFileSync(dir + pdfTemplate + ".pdf");
 
     } catch (error) {
         erroris = error;
