@@ -47,7 +47,7 @@ const handlePdf = async (templateChoosed, numPages, size) => {
     const tempName = templateChoosed.replaceAll(" ", "");
 
     const localUrl = `http://localhost:3000/api/pdf/${tempName}`;
-    const remoteURl = `https://pdf-generator-steel.vercel.app/:3000/api/pdf/${tempName}`
+    const remoteURl = `https://pdf-generator-steel.vercel.app/api/pdf/${tempName}`
     // receive the file , then covert it to array buffer 
     var fileArray = await fetch(remoteURl).then(res => res.arrayBuffer())
 
