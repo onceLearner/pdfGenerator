@@ -24,8 +24,7 @@ function runMiddleware(req, res, fn) {
 
 export default (req, res) => {
 
-    // Run the middleware
-    await runMiddleware(req, res, cors)
+
     var erroris = "";
     const { query: { pdfTemplate } } = req;
 
