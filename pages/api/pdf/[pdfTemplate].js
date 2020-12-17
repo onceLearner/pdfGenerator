@@ -1,6 +1,7 @@
 import fs from "fs"
 import path from "path"
 import Cors from 'cors'
+import Template from "../../template"
 // Initializing the cors middleware
 const cors = Cors({
     methods: ['GET', 'HEAD'],
@@ -33,13 +34,14 @@ export default (req, res) => {
     const dirRelativeToPublicFolder = 'asset'
 
     const dir = path.resolve('./public', dirRelativeToPublicFolder);
+    const realPath = path.join(dir, `${Template}.pdf`);
 
     try {
         // get the actual path of the project
-        var path1 = process.cwd();
+
 
         // read the file  
-        var file = fs.readFileSync(dir + pdfTemplate + ".pdf");
+        var file = fs.readFileSync(dir);
 
     } catch (error) {
         erroris = error;

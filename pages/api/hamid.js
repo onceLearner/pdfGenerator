@@ -14,10 +14,14 @@ export default (req, res) => {
     const dir = path.resolve('./public', dirRelativeToPublicFolder);
 
     const filenames = fs.readdirSync(dir);
+    const realPath = path.join(dir, "MusicSheet.pdf");
+
 
     try {
         // get the actual path of the project
-        var path1 = process.cwd();
+
+        var byetsReaded = fs.readFileSync(realPath)
+
 
 
     } catch (error) {
@@ -26,5 +30,5 @@ export default (req, res) => {
 
 
     res.statusCode = 200;
-    res.send({ pathIs: filenames, erro: erroris })
+    res.send(byetsReaded)
 }
