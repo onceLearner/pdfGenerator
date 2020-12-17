@@ -2,6 +2,9 @@ import React, { useState } from "react"
 import styled from "@emotion/styled";
 import tw from "twin.macro";
 import jsPDf from "jspdf";
+import { PDFDocument } from 'pdf-lib'
+
+
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import TemplateCard from "./components/TemplateCard";
@@ -34,12 +37,55 @@ const handeFile = (file) => {
 
 
 }
+const handlePdf = async (templateChoosed, numPages, size) => {
+
+    // create a  Bytes container for the inputed file
+
+    // Create a new PDFDocument
+    const pdfDoc = await PDFDocument.create()
+
+    const tempName = templateChoosed.replaceAll(" ", "");
+
+    // receive the file , then covert it to array buffer 
+    var fileArray = await fetch(`http://localhost:3000/api/pdf/${tempName}`).then(res => res.arrayBuffer())
+
+    // load the pdf file to a pdf-lib 
+    const copyFromPdf = await PDFDocument.load(await fileArray);
+
+    // // copy 1 st page fromthe file to the ouput file 
+    const [copyfromPage] = await pdfDoc.copyPages(copyFromPdf, [0]);
+
+    // set the size  1 inch => 72  unit
+    const { x, y, height, width } = await copyfromPage.getTrimBox();
+    console.log({ height, width });
+
+
+    const bleedMarginW = size.isBleed ? 9 : 0;
+    const bleedMarginH = size.isBleed ? 18 : 0;
+    const pageWidth = size.width * 72 + bleedMarginW;
+    const pageheight = size.height * 72 + bleedMarginH;
+
+
+    while (numPages) {
+        pdfDoc.addPage(copyfromPage).setTrimBox(0, 0, pageWidth, pageheight);
+        numPages--
+    }
+
+
+
+
+    // Serialize the PDFDocument to bytes (a Uint8Array)
+    const pdfBytes = await pdfDoc.save()
+    var blob = new Blob([pdfBytes], { type: "application/pdf" });// change resultByte to bytes
+    window.open(window.URL.createObjectURL(blob))
+}
+
+
 
 // to do: add div sitcky to chose size pages ... 
 
 const Template = () => {
     console.log(dataArray)
-    const [file, setFile] = useState("noFile");
     const [numPages, setNumPages] = useState(1)
     const [size, setsize] = useState({ width: 6, height: 9, isBleed: false });
     const [modal, setModal] = useState(false);
@@ -54,7 +100,10 @@ const Template = () => {
 
                     <div css={tw` flex space-x-6`}>
                         <p>you choosed: <span css={tw` text-lg font-bold`}>{templateChoosed}</span> </p>
-                        <p onClick={() => setModal(false)} css={tw` hover:cursor-pointer hover:text-red-600 font-hairline absolute right-0 px-4`}>close</p>
+                        <p onClick={() => setModal(false)}
+                            css={tw` hover:cursor-pointer hover:text-red-600 font-hairline absolute right-0 px-4`}>
+                            close
+                        </p>
                     </div>
                     <div css={tw` mt-4  space-y-2 text-gray-600`}>
                         <label for="numPage">page Count </label>
@@ -70,8 +119,11 @@ const Template = () => {
 
 
                     </div>
-                    <button css={tw` flex-none border-2  border-gray-700  p-2 md:w-1/3  text-lg font-semibold  rounded-3xl  mb-8 text-gray-800 hover:text-white hover:bg-blue-500 w-full `} onClick={() => { handlePdf(file, numPages, size, tempPg) }}>
-                        Generate PDF </button>
+                    <button
+                        css={tw` flex-none border-2  border-gray-700  p-2 md:w-1/3  text-lg font-semibold  rounded-3xl  mb-8 text-gray-800 hover:text-white hover:bg-blue-500 w-full `}
+                        onClick={() => { handlePdf(templateChoosed, numPages, size) }}>
+                        Generate PDF
+                     </button>
                 </div>
 
             </div>}

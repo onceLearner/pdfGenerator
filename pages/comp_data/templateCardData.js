@@ -2,11 +2,25 @@ export const dataArray = [
 
     {
         title: "music sheet",
-        imgUrl: "music.jpg"
+        imgUrl: "music.jpg",
     },
     {
         title: "Wide Ruled",
         imgUrl: "WideRuled.jpg"
+    }
+    ,
+    {
+        title: "Comic Book 1",
+        imgUrl: "ComicBook1.jpg"
+    },
+    {
+        title: "Blush Notes",
+        imgUrl: "BlushNotes.jpg"
+    }
+    ,
+    {
+        title: "Birthday Reminder",
+        imgUrl: "BirthdayReminder.jpg"
     }
 
 ]
