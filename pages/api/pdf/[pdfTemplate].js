@@ -34,7 +34,7 @@ export default (req, res) => {
     const dirRelativeToPublicFolder = 'asset'
 
     const dir = path.resolve('./public', dirRelativeToPublicFolder);
-    const realPath = path.join(dir, `${Template}.pdf`);
+    const realPath = path.join(dir, `${pdfTemplate}.pdf`);
 
     try {
         // get the actual path of the project
