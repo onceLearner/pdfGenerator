@@ -41,7 +41,7 @@ export default (req, res) => {
 
 
         // read the file  
-        var file = fs.readFileSync(dir);
+        var file = fs.readFileSync(realPath);
 
     } catch (error) {
         erroris = error;
