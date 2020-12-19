@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styled from "@emotion/styled";
 import Head from "next/head";
+
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import TemplateOption from "./components/TemplateOption";
@@ -28,8 +29,13 @@ const Home = () => {
       <main css={tw` h-screen `}>
         <Header />
         <div css={tw`bg-gradient-to-b from-white to-indigo-100`}>
-
-          <div css={tw` p-12 md:m-12   flex flex-wrap justify-evenly items-center gap-12 md:gap-20`} >
+          <div css={tw` p-8   bg-gradient-to-b from-purple-500 to-indigo-600`} style={{ height: "70vh" }}>
+            <div >
+              <p style={{ fontFamily: "Questrial" }} css={tw` text-gray-100  text-5xl text-center`}> All Publisher Utilities  </p>
+              <p css={tw` font-bold italic text-center text-2xl text-white`}>in one place</p>
+            </div>
+          </div>
+          <div css={tw`transform -translate-y-56   w-screen p-6 md:p-2  flex flex-wrap justify-evenly items-center gap-12 md:gap-20`} >
             <MergeOpt />
             <RefactorOpt />
             <TemplateOption />

@@ -12,21 +12,21 @@ const HeaderPopUp = (props) => {
     const [isVisible, setIsVisible] = useState(false);
 
     const Icon = isVisible ?
-        <CloseIcon css={tw`  w-full transition delay-500 ease-in   `} style={{ fontSize: "35px" }} /> :
-        <MenuIcon css={tw`  w-full   `} style={{ fontSize: "35px" }} />;
+        <CloseIcon css={tw`  w-full transition duration-500 ease-in   text-white ml-16 `} style={{ fontSize: "35px" }} /> :
+        <MenuIcon css={tw`  w-full text-white    `} style={{ fontSize: "35px" }} />;
 
 
 
 
     return (
         <div css={tw` `} >
-            <button css={tw` mt-4 ml-24 focus:outline-none  `} onClick={() => setIsVisible(!isVisible)}  >{Icon}</button>
+            <button css={tw`  focus:outline-none  `} onClick={() => setIsVisible(!isVisible)}  >{Icon}</button>
 
             {isVisible &&
-                <div css={tw`absolute right-0  left-0 z-10 w-screen h-64  shadow-xl  text-center mt-20  bg-white   `}>
+                <div css={tw`fixed left-0 transform -translate-y-16 z-10 w-screen h-64  shadow-xl  text-center mt-20  bg-white   `}>
                     <ul css={tw`  mt-8`} >
                         {tabs.map(tab => (
-                            <li key={tab.id} css={tw` mt-5 `} >
+                            <li key={tab.id} css={tw` mt-5 `} style={{ fontFamily: "Questrial" }} >
                                 <Link href={tab.href}>
                                     <a css={tw`  hover:border-b-4 md:text-lg font-bold text-xl  md:font-semibold bg-clip-text text-transparent bg-gradient-to-r from-gray-700 to-gray-900  hover:border-indigo-400 hover:text-indigo-500 hover:cursor-pointer p-2`}>{tab.name}</a>
                                 </Link>

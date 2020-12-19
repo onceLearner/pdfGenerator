@@ -14,11 +14,11 @@ const Header = () => {
 
 
     return (
-        <div css={tw`flex justify-evenly items-center  md:mb-2  p-4 shadow-sm bg-gradient-to-b from-white to-gray-100       `}  >
+        <div css={tw`flex justify-between items-center   p-4  bg-gradient-to-b from-purple-500 to-purple-500   border border-b border-purple-400    `}  >
             <Link href="/">
                 <div css={tw` flex items-center cursor-pointer `} >
-                    <Image src="/logo.png" width="40" height="30" css={tw`  object-contain`} />
-                    <a css={tw` md:text-xl text-gray-700`} style={{ fontFamily: "Audiowide" }} >Publisher Factory</a>
+                    <Image src="/logo-white.png" width="40" height="30" css={tw`  object-contain`} />
+                    <a css={tw` md:text-xl text-xs text-white`} style={{ fontFamily: "Audiowide" }} >Publisher Factory</a>
                 </div>
 
 
@@ -31,7 +31,7 @@ const Header = () => {
                         {tabs.map(tab => (
                             <li key={tab.id} >
                                 <Link href={tab.href}>
-                                    <a style={{ fontFamily: "Questrial" }} css={tw` hover:border-b-4 text-gray-700 text-lg   font-thin   hover:border-indigo-400 hover:text-indigo-500 hover:cursor-pointer p-2`}>{tab.name}</a>
+                                    <a style={{ fontFamily: "Questrial" }} css={tw` hover:border-b-4 text-gray-100 text-lg   font-thin   hover:border-indigo-400 hover:text-indigo-500 hover:cursor-pointer p-2`}>{tab.name}</a>
                                 </Link>
                             </li>
                         ))}
