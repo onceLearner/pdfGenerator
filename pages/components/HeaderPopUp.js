@@ -12,8 +12,8 @@ const HeaderPopUp = (props) => {
     const [isVisible, setIsVisible] = useState(false);
 
     const Icon = isVisible ?
-        <CloseIcon css={tw`  w-full transition duration-500 ease-in   text-white ml-16 `} style={{ fontSize: "35px" }} /> :
-        <MenuIcon css={tw`  w-full text-white    `} style={{ fontSize: "35px" }} />;
+        <CloseIcon css={tw` text-gray-800`} style={{ fontSize: "29px" }} /> :
+        <MenuIcon css={tw`  w-full text-white    `} style={{ fontSize: "29px" }} />;
 
 
 
@@ -23,7 +23,13 @@ const HeaderPopUp = (props) => {
             <button css={tw`  focus:outline-none  `} onClick={() => setIsVisible(!isVisible)}  >{Icon}</button>
 
             {isVisible &&
-                <div css={tw`fixed left-0 transform -translate-y-16 z-10 w-screen h-64  shadow-xl  text-center mt-20  bg-white   `}>
+                <div css={tw`fixed left-0  top-0 z-10 w-screen h-screen  shadow-xl  text-center  bg-white   `}>
+                    <div css={tw` flex justify-between p-4 border`}>
+                        <p css={tw` text-lg text-purple-900`} style={{ fontFamily: "" }}>PF</p>
+                        <button css={tw`  focus:outline-none  `} onClick={() => setIsVisible(!isVisible)}  >
+                            {Icon}
+                        </button>
+                    </div>
                     <ul css={tw`  mt-8`} >
                         {tabs.map(tab => (
                             <li key={tab.id} css={tw` mt-5 `} style={{ fontFamily: "Questrial" }} >
