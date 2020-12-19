@@ -31,7 +31,7 @@ const Header = () => {
 
 
     return (
-        <div css={[tw`flex justify-between items-center   p-4  bg-gradient-to-b   border border-b  px-8   `, isHome ? tw`from-purple-500 to-purple-500  border-purple-400 ` : tw`from-white to-white`]}  >
+        <div css={[tw`flex justify-between items-center p-4  bg-gradient-to-b   border border-b     `, isHome ? tw`from-purple-500 to-purple-500  border-purple-400 ` : tw`from-white to-white`]}  >
             <Link href="/">
                 <div css={tw` flex items-center cursor-pointer `} >
                     <Image src="/logo-white.png" width="40" height="30" css={tw`  object-contain`} />

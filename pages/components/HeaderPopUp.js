@@ -6,14 +6,29 @@ import MenuIcon from '@material-ui/icons/Menu'
 import CloseIcon from '@material-ui/icons/Close';
 
 const tabs = [{ id: 1, href: "/", name: "Home" }, { id: 2, href: "/About", name: "About" }, { id: 3, href: "/ReachMe", name: "Reach Me" }]
+const checkIsHome = () => {
+    if (!process.browser) return true;
+    switch (window.location.href) {
+        case "http://localhost:3000/":
+            return true;
+
+        case "https://pdf-generator-steel.vercel.app/":
+            return true;
+
+        default:
+            return false;
+
+    }
+}
 
 
 const HeaderPopUp = (props) => {
     const [isVisible, setIsVisible] = useState(false);
+    const [isHome, setIsHome] = useState(checkIsHome());
 
     const Icon = isVisible ?
         <CloseIcon css={tw` text-gray-800`} style={{ fontSize: "29px" }} /> :
-        <MenuIcon css={tw`  w-full text-white    `} style={{ fontSize: "29px" }} />;
+        <MenuIcon css={isHome && tw`  w-full text-white    `} style={{ fontSize: "29px" }} />;
 
 
 
